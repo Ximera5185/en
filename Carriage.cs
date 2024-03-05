@@ -10,9 +10,11 @@ namespace en
     {
         private int _capacity;        // вместимость
 
-        public Carriage(int capacity) 
+        public Carriage()
         {
-            _capacity = capacity;
+            Random random = new Random();
+
+            _capacity = random.Next(10, 50);
         }
         public int GetCapacity()
         {

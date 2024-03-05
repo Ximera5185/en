@@ -10,6 +10,11 @@ namespace en
     {
         static void Main(string [] args)
         {
+            Depot depot = new Depot();
+
+            depot.SetDestination();
+
+            Console.ReadKey();
         }
     }
 }

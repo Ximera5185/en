@@ -6,26 +6,34 @@ using System.Threading.Tasks;
 
 namespace en
 {
-    internal class Direction
+    internal class Direction                                            // направление
     {
-        private string _source;     // Станция отправления 
+        private string _source;                                         // Станция отправления 
 
-        private string _destination; // Станция прибытия
+        private string _destination;                                    // Станция прибытия
 
-        public Direction(string source,string destination) 
+        public Direction() 
         {
-            _source = source;
+            _source = GetSourse();
 
-            _destination = destination;
+            _destination = GetDestination();
         }
 
         public string GetSourse()
         {
+            Console.WriteLine("Введите станцию отправления");
+
+            _source = Console.ReadLine();
+
             return _source;
         }
 
         public string GetDestination()
         {
+            Console.WriteLine("Введите станцию прибытия");
+
+            _destination = Console.ReadLine();
+
             return _destination;
         }
     }

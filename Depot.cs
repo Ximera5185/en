@@ -10,9 +10,9 @@ namespace en
     {
         List<Train> trains = new List<Train>();
 
-        public void SetDestination()                    // Установить направеление ЗАЧЕМ ТУТ ЭТОТ МЕТОД ?
+        public Direction SetDestination()                    // Установить направеление ЗАЧЕМ ТУТ ЭТОТ МЕТОД ?
         {
-            Direction direction = new Direction();      // Создаем направление
+            return  new Direction();      // Создаем направление
         }
 
         public int SellTickets()                        // Продажа билетов 
@@ -31,9 +31,11 @@ namespace en
 
                 i -= carriage.GetCapacity();
             }
+        }
 
-            
-            
+        public void CreateTrains() 
+        {
+            trains.Add(new Train(SetDestination()));
         }
     }
 }

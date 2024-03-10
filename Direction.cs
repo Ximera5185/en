@@ -8,33 +8,33 @@ namespace en
 {
     internal class Direction                                            // направление
     {
-        private string _source;                                         // Станция отправления 
+         public string Source { get; private set; }                                         // Станция отправления 
 
-        private string _destination;                                    // Станция прибытия
+        public string Destination { get; private set; }                                    // Станция прибытия
 
         public Direction() 
         {
-            _source = GetSourse();
+            Source = GetSourse();
 
-            _destination = GetDestination();
+            Destination = GetDestination();
         }
 
         public string GetSourse()
         {
             Console.WriteLine("Введите станцию отправления");
 
-            _source = Console.ReadLine();
+            Source = Console.ReadLine();
 
-            return _source;
+            return Source;
         }
 
         public string GetDestination()
         {
             Console.WriteLine("Введите станцию прибытия");
 
-            _destination = Console.ReadLine();
+            Destination = Console.ReadLine();
 
-            return _destination;
+            return Destination;
         }
     }
 }

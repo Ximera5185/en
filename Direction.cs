@@ -36,5 +36,10 @@ namespace en
 
             return Destination;
         }
+
+        public void ShowInfo() 
+        {
+            Console.WriteLine($"Отправление {Source} Прибытие {Destination}");
+        }   
     }
 }

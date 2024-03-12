@@ -12,7 +12,7 @@ namespace en
         {
             Depot depot = new Depot();
 
-            depot.SetDestination();
+            depot.Work();
 
             Console.ReadKey();
         }

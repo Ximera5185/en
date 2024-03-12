@@ -10,6 +10,9 @@ namespace en
     {
         List<Train> trains = new List<Train>();
 
+        
+
+        int tickets;
         public Direction SetDestination()                    // Установить направеление ЗАЧЕМ ТУТ ЭТОТ МЕТОД ?
         {
             return  new Direction();      // Создаем направление
@@ -22,20 +25,55 @@ namespace en
            return random.Next(10,50);
         }
 
-        public void CreateCarriage(int tickets) 
+        public Carriage CreateCarriage(int tickets) 
         {
             for (int i = tickets; i > 0;)
             {
 
-            Carriage carriage = new Carriage();
+                Carriage carriage = new Carriage();
 
                 i -= carriage.GetCapacity();
+
+                return carriage;
             }
+
         }
 
         public void CreateTrains() 
         {
-            trains.Add(new Train(SetDestination()));
+            trains.Add(new Train(SetDestination(),CreateCarriage(SellTickets())));
+        }
+
+        public void Work() 
+        {
+            string inputUser = "";
+
+            while (true)
+            {
+                
+                Console.WriteLine("Введите 1 для создания направления");
+
+                inputUser = Console.ReadLine();
+                
+                switch (inputUser)
+                {
+                    case "1":
+                        SetDestination();
+                        break;
+
+                    case "2":
+                        SellTickets();
+                        break;
+
+                    case "3":
+                        CreateCarriage(ref tickets);
+                        break;
+
+                    case "4":
+                        CreateTrains();
+                        break;
+                }
+            }
         }
     }
 }

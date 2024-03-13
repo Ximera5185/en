@@ -1,25 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace en
 {
     internal class Train
     {
-        List<Carriage> carriages = new List<Carriage>();
+        List<Carriage> _carriages = new List<Carriage>();
 
         private Direction _direction;
 
-        private Carriage _carriage;
-        public Train(Direction direction, Carriage carriage)
+        
+        public Train(Direction direction, List<Carriage> carriages)
         {
            _direction = direction;
 
-           _carriage = carriage;
-
-           carriages.Add(carriage);
+            _carriages = carriages;
         }
 
         public void ShowInfo() 
@@ -31,11 +26,11 @@ namespace en
         {
             int capacity;
 
-            foreach (Carriage carriage in carriages)
+            foreach (Carriage carriage in _carriages)
             {
                 capacity = carriage.GetCapacity();
 
-                Console.WriteLine($"Вагон{carriages.IndexOf(carriage) + 1} - вместимость{capacity}");
+                Console.WriteLine($"Вагон{_carriages.IndexOf(carriage) + 1} - вместимость{capacity}");
             }
         }
     }

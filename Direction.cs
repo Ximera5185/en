@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace en
 {
@@ -11,7 +7,7 @@ namespace en
          public string Source { get; private set; }                                         // Станция отправления 
 
         public string Destination { get; private set; }                                    // Станция прибытия
-
+        // методы создания вывести в класс депо
         public Direction() 
         {
             Source = GetSourse();

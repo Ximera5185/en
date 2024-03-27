@@ -7,74 +7,92 @@ namespace en
     {
         List<Train> _trains = new List<Train>();
 
-        public Direction CreateDirection()                    // Установить направеление ЗАЧЕМ ТУТ ЭТОТ МЕТОД ?
+        public void CreateTrain()
         {
-            return new Direction();      // Создаем направление
+            Direction direction = CreateDirection();
+
+            int soldTickets = SellTickets();
+
+            Console.WriteLine($"По данному направлению было продано {soldTickets} билетов");
+
+            List <Carriage> carriages = CreateCarriages(soldTickets);
+
+            Console.WriteLine($"К поезду былот добавлено {carriages.Count} вагонов");
+
+            Train train = new Train(direction, carriages, soldTickets);
+
+            _trains.Add(train);// у поезда должно быть поле кол прод билетов
+
+            Console.WriteLine($"Свормерован поезд :");
+
+            train.ShowInfo();
+
+            Console.WriteLine("Нажмите ентер для формирования нового поезда");
+
+            Console.ReadLine();
         }
 
-        public int SellTickets()                        // Продажа билетов 
+        // поправить меню
+        // колличество свободных мест добавить в класс поезда в метод шовинфоы
+        private Direction CreateDirection()                    // Установить направеление ЗАЧЕМ ТУТ ЭТОТ МЕТОД ?
+        {
+            string startPoint;
+
+            string endPoint;
+
+            do
+            {
+                Console.WriteLine("Введите станцию отправления");
+
+                startPoint = Console.ReadLine();
+
+                Console.WriteLine("Введите станцию прибытия");
+
+                endPoint = Console.ReadLine();
+            }
+            while (startPoint == endPoint);
+
+
+            return new Direction(startPoint,endPoint);      // Создаем направление
+        }
+
+        private int SellTickets()                        // Продажа билетов 
         {
             Random random = new Random();
 
-            return random.Next(10, 50);
+            return random.Next(100, 500);
         }
 
-        public Carriage CreateCarriage(int tickets)
+        public List<Carriage> CreateCarriages(int tickets)
         {
-            for (int i = tickets; i > 0;)
+            int capacity = new Carriage().Capacity;
+
+            List<Carriage> carriages = new List<Carriage>();
+
+            int count = tickets / capacity;
+
+            if (tickets % capacity != 0)
             {
-
-                Carriage carriage = new Carriage();
-
-                i -= carriage.GetCapacity();
-
-                return carriage;// ошибка
+                count++;
             }
 
-            return null;
+            for (int i = 0; i < count; i++)
+            {
+                carriages.Add(new Carriage());
+            }
+
+            return carriages;
         }
 
-        public void CreateTrains(Direction direction, List<Carriage> carriages)
-        {
-            _trains.Add(new Train(direction, carriages));// у поезда должно быть поле кол прод билетов
-        }
 
         public void Work()
         {
-            List<Carriage> carriages = new List<Carriage>();
-
-            Direction direction = null;
-
-            int tickets = 0;
-
-            string inputUser = "";
-
 
             while (true)
             {
+                CreateTrain();
 
-                Console.WriteLine("Введите 1 для создания направления");
-
-                inputUser = Console.ReadLine();
-
-                switch (inputUser)
-                {
-                    case "1":
-                        direction = CreateDirection();
-                        break;
-
-                    case "2":
-                        tickets = SellTickets();
-                        break;
-
-                    case "3":
-                        carriages.Add(CreateCarriage(tickets));
-                        break;
-
-                    case "4":
-                        CreateTrains(direction, carriages);//оставить один метод
-                        break;
-                }
+                Console.ReadKey();
             }
         }
     }

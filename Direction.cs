@@ -4,38 +4,39 @@ namespace en
 {
     internal class Direction                                            // направление
     {
-         public string Source { get; private set; }                                         // Станция отправления 
-
-        public string Destination { get; private set; }                                    // Станция прибытия
         // методы создания вывести в класс депо
-        public Direction() 
+        public Direction(string startPoint, string endPoint)
         {
-            Source = GetSourse();
+            StartPoint = startPoint;
 
-            Destination = GetDestination();
+            EndPoint = endPoint;
         }
 
-        public string GetSourse()
+        public string StartPoint { get; private set; }                                         // Станция отправления 
+
+        public string EndPoint { get; private set; }                                    // Станция прибытия
+
+        /*public string GetSourse()
         {
             Console.WriteLine("Введите станцию отправления");
 
-            Source = Console.ReadLine();
+            StartPoint = Console.ReadLine();
 
-            return Source;
+            return StartPoint;
         }
 
         public string GetDestination()
         {
             Console.WriteLine("Введите станцию прибытия");
 
-            Destination = Console.ReadLine();
+            EndPoint = Console.ReadLine();
 
-            return Destination;
-        }
+            return EndPoint;
+        }*/
 
-        public void ShowInfo() 
+        public void ShowInfo()
         {
-            Console.WriteLine($"Отправление {Source} Прибытие {Destination}");
-        }   
+            Console.WriteLine($"Отправление {StartPoint} Прибытие {EndPoint}");
+        }
     }
 }

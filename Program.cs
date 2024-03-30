@@ -9,8 +9,6 @@ namespace en
             Depot depot = new Depot();
 
             depot.Work();
-
-            Console.ReadKey();
         }
     }
 }

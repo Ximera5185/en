@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace en
+﻿namespace en
 {
     internal class Carriage
     {        

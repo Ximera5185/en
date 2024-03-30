@@ -26,8 +26,6 @@ namespace en
             Console.WriteLine($"Сформирован поезд :");
 
             train.ShowInfo();
-
-            Console.ReadLine();
         }
 
         private Direction CreateDirection()
@@ -88,8 +86,6 @@ namespace en
 
             string inputUserCommand;
 
-
-
             while (_isProgrammWork)
             {
                 Console.WriteLine("Нажмите Enter для формирования нового поезда , для выхода ихпрограммы введите Exit");
@@ -100,8 +96,10 @@ namespace en
                 {
                     _isProgrammWork = false;
                 }
-
-                CreateTrain();
+                else
+                {
+                    CreateTrain();
+                }
 
                 Console.ReadKey();
             }

@@ -11,6 +11,8 @@ namespace en
 
         private int _quantityTicketsSold;
 
+        private int _availableSeats;
+
         public Train(Direction direction, List<Carriage> carriages, int quantityTicketsSold)
         {
             _direction = direction;
@@ -18,27 +20,22 @@ namespace en
             _carriages = carriages;
 
             _quantityTicketsSold = quantityTicketsSold;
+
+            _availableSeats = CheckVacancies(carriages,_quantityTicketsSold);
         }
 
         public void ShowInfo() 
-        {
-            Console.WriteLine($"Направление {_direction.StartPoint} - {_direction.EndPoint}") ;
-
-            Console.WriteLine($"Колличество вагонов {_carriages.Count}");
+        {         
+            Console.WriteLine($"Направление {_direction.StartPoint} - {_direction.EndPoint}\n" +
+            $"Колличество вагонов {_carriages.Count}\n" +
+            $"Колличество свободных мест {_availableSeats}");
         }
 
-        public void ShowCarriges() 
+        private int CheckVacancies(List<Carriage> carriages, int _quantityTicketsSold) 
         {
-            int capacity;
+            int wagonСapacity = 50;
 
-            /* foreach (Carriage carriage in _carriages)
-             {
-                 capacity = carriage.GetCapacity();
-
-                 Console.WriteLine($"Вагон{_carriages.IndexOf(carriage) + 1} - вместимость{capacity}");
-             }*/
-
-            Console.WriteLine($"Колличество вагонов {_carriages.Count}");
+            return carriages.Count * wagonСapacity - _quantityTicketsSold;
         }
     }
 }

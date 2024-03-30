@@ -15,26 +15,22 @@ namespace en
 
             Console.WriteLine($"По данному направлению было продано {soldTickets} билетов");
 
-            List <Carriage> carriages = CreateCarriages(soldTickets);
+            List<Carriage> carriages = CreateCarriages(soldTickets);
 
-            Console.WriteLine($"К поезду былот добавлено {carriages.Count} вагонов");
+            Console.WriteLine($"К поезду было добавлено {carriages.Count} вагонов");
 
             Train train = new Train(direction, carriages, soldTickets);
 
-            _trains.Add(train);// у поезда должно быть поле кол прод билетов
+            _trains.Add(train);
 
-            Console.WriteLine($"Свормерован поезд :");
+            Console.WriteLine($"Сформирован поезд :");
 
             train.ShowInfo();
-
-            Console.WriteLine("Нажмите ентер для формирования нового поезда");
 
             Console.ReadLine();
         }
 
-        // поправить меню
-        // колличество свободных мест добавить в класс поезда в метод шовинфоы
-        private Direction CreateDirection()                    // Установить направеление ЗАЧЕМ ТУТ ЭТОТ МЕТОД ?
+        private Direction CreateDirection()
         {
             string startPoint;
 
@@ -52,15 +48,17 @@ namespace en
             }
             while (startPoint == endPoint);
 
-
-            return new Direction(startPoint,endPoint);      // Создаем направление
+            return new Direction(startPoint, endPoint);
         }
 
-        private int SellTickets()                        // Продажа билетов 
+        private int SellTickets()
         {
+            int minValue = 100;
+            int maxValue = 500;
+
             Random random = new Random();
 
-            return random.Next(100, 500);
+            return random.Next(minValue, maxValue);
         }
 
         public List<Carriage> CreateCarriages(int tickets)
@@ -84,11 +82,22 @@ namespace en
             return carriages;
         }
 
-
         public void Work()
         {
+            bool _isProgrammWork = true;
 
-            while (true)
+            string inputUserCommand;
+
+            Console.WriteLine("Нажмите Enter для формирования нового поезда , для выхода ихпрограммы введите Exit");
+
+            inputUserCommand = Console.ReadLine();
+
+            if (inputUserCommand == "Exit")
+            {
+                _isProgrammWork = false;
+            }
+
+            while (_isProgrammWork)
             {
                 CreateTrain();
 

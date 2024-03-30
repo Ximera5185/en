@@ -88,17 +88,19 @@ namespace en
 
             string inputUserCommand;
 
-            Console.WriteLine("Нажмите Enter для формирования нового поезда , для выхода ихпрограммы введите Exit");
 
-            inputUserCommand = Console.ReadLine();
-
-            if (inputUserCommand == "Exit")
-            {
-                _isProgrammWork = false;
-            }
 
             while (_isProgrammWork)
             {
+                Console.WriteLine("Нажмите Enter для формирования нового поезда , для выхода ихпрограммы введите Exit");
+
+                inputUserCommand = Console.ReadLine();
+
+                if (inputUserCommand == "Exit")
+                {
+                    _isProgrammWork = false;
+                }
+
                 CreateTrain();
 
                 Console.ReadKey();

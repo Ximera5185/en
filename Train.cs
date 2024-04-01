@@ -5,7 +5,7 @@ namespace en
 {
     internal class Train
     {
-        List<Carriage> _carriages = new List<Carriage>();
+        private List<Carriage> _carriages = new List<Carriage>();
 
         private Direction _direction;
 
@@ -21,17 +21,17 @@ namespace en
 
             _quantityTicketsSold = quantityTicketsSold;
 
-            _availableSeats = CheckVacancies(carriages,_quantityTicketsSold);
+            _availableSeats = ReturnAvailableSeats(carriages, _quantityTicketsSold);
         }
 
-        public void ShowInfo() 
-        {         
+        public void ShowInfo()
+        {
             Console.WriteLine($"Направление {_direction.StartPoint} - {_direction.EndPoint}\n" +
             $"Колличество вагонов {_carriages.Count}\n" +
             $"Колличество свободных мест {_availableSeats}");
         }
 
-        private int CheckVacancies(List<Carriage> carriages, int _quantityTicketsSold) 
+        private int ReturnAvailableSeats(List<Carriage> carriages, int _quantityTicketsSold)
         {
             int wagonСapacity = 50;
 

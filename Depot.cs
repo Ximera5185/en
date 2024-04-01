@@ -5,7 +5,7 @@ namespace en
 {
     internal class Depot
     {
-        List<Train> _trains = new List<Train>();
+       private List<Train> _trains = new List<Train>();
 
         public void CreateTrain()
         {
@@ -51,12 +51,7 @@ namespace en
 
         private int SellTickets()
         {
-            int minValue = 100;
-            int maxValue = 500;
-
-            Random random = new Random();
-
-            return random.Next(minValue, maxValue);
+            return UserUtils.GetRundomNumber();
         }
 
         public List<Carriage> CreateCarriages(int tickets)

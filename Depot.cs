@@ -59,9 +59,9 @@ namespace en
 
         public List<Carriage> CreateCarriages(int tickets)
         {
-            int capacity = new Carriage().Capacity;
+        /*    List<Carriage> carriages = new List<Carriage>();
 
-            List<Carriage> carriages = new List<Carriage>();
+            int capacity = new Carriage().Capacity;
 
             int count = tickets / capacity;
 
@@ -75,7 +75,8 @@ namespace en
                 carriages.Add(new Carriage());
             }
 
-            return carriages;
+         
+            return carriages;*/
         }
 
         public void Work()

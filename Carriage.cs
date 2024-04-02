@@ -4,7 +4,10 @@
     {        
         public Carriage()
         {
-            Capacity = 50;
+            int minValue = 10;
+            int maxValue = 50;
+
+            Capacity = UserUtils.GetRundomNumber(minValue,maxValue);
         }
 
         public int Capacity { get; private set; }

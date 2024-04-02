@@ -33,10 +33,7 @@ namespace en
 
         private int ReturnAvailableSeats(List<Carriage> carriages, int _quantityTicketsSold)
         {
-            int minValue = 10;
-            int maxValue = 50;
-
-            int wagonСapacity = UserUtils.GetRundomNumber(minValue,maxValue);
+            int wagonСapacity = carriages.Capacity;
 
             return carriages.Count * wagonСapacity - _quantityTicketsSold;
         }

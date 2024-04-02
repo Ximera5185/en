@@ -65,7 +65,7 @@ namespace en
 
             int count = tickets / capacity;
 
-            if (tickets % capacity != 0)
+            if (tickets > capacity)
             {
                 count++;
             }

@@ -51,7 +51,10 @@ namespace en
 
         private int SellTickets()
         {
-            return UserUtils.GetRundomNumber();
+            int minValue = 100;
+            int maxValue = 500;
+
+            return UserUtils.GetRundomNumber(minValue,maxValue);
         }
 
         public List<Carriage> CreateCarriages(int tickets)
@@ -77,19 +80,21 @@ namespace en
 
         public void Work()
         {
-            bool _isProgrammWork = true;
-
             string inputUserCommand;
+            string exitProgrammCommand = "Exit";
+            string createTainCommand = "Enter";
 
-            while (_isProgrammWork)
+            bool isProgrammWork = true;
+
+            while (isProgrammWork)
             {
-                Console.WriteLine("Нажмите Enter для формирования нового поезда , для выхода ихпрограммы введите Exit");
+                Console.WriteLine($"Нажмите {createTainCommand} для формирования нового поезда , для выхода из программы введите {exitProgrammCommand}");
 
                 inputUserCommand = Console.ReadLine();
 
-                if (inputUserCommand == "Exit")
+                if (inputUserCommand == exitProgrammCommand)
                 {
-                    _isProgrammWork = false;
+                    isProgrammWork = false;
                 }
                 else
                 {

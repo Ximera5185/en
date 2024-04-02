@@ -4,13 +4,10 @@ namespace en
 {
     static class UserUtils
     {
-        static Random random = new Random();
-        static public int GetRundomNumber()
+       private static Random _random = new Random();
+        static public int GetRundomNumber(int minValue,int maxValue)
         {
-            int minValue = 100;
-            int maxValue = 500;
-
-            return random.Next(minValue, maxValue);
+            return _random.Next(minValue, maxValue);
         }
     }
 }

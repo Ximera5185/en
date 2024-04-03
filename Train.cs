@@ -33,9 +33,14 @@ namespace en
 
         private int ReturnAvailableSeats(List<Carriage> carriages, int _quantityTicketsSold)
         {
-            int wagonСapacity = carriages.Capacity;
+            int wagonСapacity = 0;
 
-            return carriages.Count * wagonСapacity - _quantityTicketsSold;
+            foreach (Carriage carriage in carriages)
+            {
+                wagonСapacity += carriage.Capacity;
+            }
+
+            return wagonСapacity - _quantityTicketsSold;
         }
     }
 }
